@@ -4,6 +4,9 @@ import dynamic from 'next/dynamic';
 const MyClientComponent = dynamic(() => import('../../components/Pages/login/MyComponents'), {
   ssr: false, // Treat this component as a "Client Component"
 });
+export const metadata = {
+  title: 'Login',
+}
 const page = () => {
   return (
     <MyClientComponent />
