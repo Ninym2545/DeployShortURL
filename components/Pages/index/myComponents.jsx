@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
+"use client"
+import React, { useState, useEffect } from 'react';
 import InputShortener from './InputShortener';
 import LinkResult from './LinkResult';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';  // แก้ไขนี้เป็น next/router
-import Loading from '@/app/loading';  // แก้ไขนี้เป็น app/loading (ตามไฟล์จริง)
+import { useRouter } from 'next/router'; // Fixed import
+import Loading from '@/app/loading'; // Fixed import
 
-const MyComponent = () => {  // แก้ไขนี้เป็น MyComponent (ตัวอักษรตัวพิมพ์ใหญ่ตัวแรก)
+const MyComponents = () => {
+    const session = useSession();
+    const router = useRouter();
+    const [inputValue, setInputValue] = useState("");
 
-  const session = useSession();
-  const router = useRouter();
+    useEffect(() => {
+        if (session.status === "authenticated") {
+            router?.push("/user");
+        }
+    }, [session.status, router]);
 
-  if (session.status === "loading") {
-    return <Loading />;
-  }
+    if (session.status === "loading") {
+        return <Loading />;
+    }
 
-  if (session.status === "authenticated") {
-    router?.push("/user");
-  }
+    return (
+        <>
+            <InputShortener setInputValue={setInputValue} />
+            <LinkResult inputValue={inputValue} />
+        </>
+    );
+};
 
-  const [inputValue, setInputValue] = useState("");
-
-  return (
-    <>
-      <InputShortener setInputValue={setInputValue} />
-      <LinkResult inputValue={inputValue} />
-    </>
-  );
-}
-
-export default MyComponent;  // แก้ไขนี้เป็น MyComponent (ตัวอักษรตัวพิมพ์ใหญ่ตัวแรก)
+export default MyComponents;
