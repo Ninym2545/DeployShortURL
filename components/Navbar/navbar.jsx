@@ -79,7 +79,7 @@ export default function Nav() {
                     direction={'row'}
                     spacing={6}>
 
-                    <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'md'} fontWeight={400} href='login'>
+                    <Button as={'a'} display={{ md: 'inline-flex' }} fontSize={'md'} fontWeight={400} href='login'>
                       เข้าสู่ระบบ
                     </Button>
 
