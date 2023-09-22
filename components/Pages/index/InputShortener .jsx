@@ -58,9 +58,9 @@ export default function InputShortener ({ setInputValue }) {
           >
             URL <span className="text-cyan-600">Shorten</span> <br />
             
-            <Box display={'flex'} my={'5'} px={'20'}>
-            <Input variant='filled' placeholder='Enter full url...' mx={'3'}  value={value} onChange={e => setValue(e.target.value)}  />
-            <Button colorScheme='blue' onClick={handleClick}>Create Short URL</Button>
+            <Box display={'flex'} mt={{ base: '4' }} px={{ base: "2", sm: "7" }}>
+            <Input variant='filled' placeholder='Enter full url...' mx={'3'}  value={value} onChange={e => setValue(e.target.value)} fontSize={{ base: "14px", sm: "16px" }}  />
+            <Button colorScheme='blue' width={{ base: "200px" }} fontSize={{ base: "14px", sm: "16px" }} onClick={handleClick}>Create Short URL</Button>
            
             </Box>
            
