@@ -1,13 +1,12 @@
 import React from 'react'
 import dynamic from 'next/dynamic';
 
-const MyClientComponent = dynamic(() => import('../components/Pages/index/myComponents'), {
+const MyClientComponent = dynamic(() => import('../../components/Pages/login/MyComponents'), {
   ssr: false, // Treat this component as a "Client Component"
 });
 const page = () => {
-
   return (
-    <MyClientComponent/>
+    <MyClientComponent />
   )
 }
 
