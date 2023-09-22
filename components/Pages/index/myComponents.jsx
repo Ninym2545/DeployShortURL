@@ -1,29 +1,32 @@
-"use client"
-import React, { useState } from 'react'
-import InputShortener from './InputShortener '
-import LinkResult from './LinkResult '
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import Loading from '@/app/loadding'
+import React, { useState, useEffect } from 'react';
+import InputShortener from './InputShortener';
+import LinkResult from './LinkResult';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import Loading from '@/app/loading';
 
-const MyComponents = () => {
+const MyComponent = () => {
+  const session = useSession();
+  const router = useRouter();
 
-    const session = useSession();
-    const router = useRouter();
-    if (session.status === "loading") {
-      return <Loading/>;
-    }
-  
+  const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
     if (session.status === "authenticated") {
       router?.push("/user");
     }
-    const [inputValue, setInputValue] = useState("");
-    return (
-        <>
-            <InputShortener setInputValue={setInputValue} />
-            <LinkResult inputValue={inputValue}/>
-        </>
-    )
-}
+  }, [session.status, router]);
 
-export default MyComponents
+  if (session.status === "loading") {
+    return <Loading />;
+  }
+
+  return (
+    <>
+      <InputShortener setInputValue={setInputValue} />
+      <LinkResult inputValue={inputValue} />
+    </>
+  );
+};
+
+export default MyComponent;
