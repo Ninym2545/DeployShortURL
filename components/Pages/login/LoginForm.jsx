@@ -48,13 +48,14 @@ export default function LoginForm() {
     signIn("credentials", { email, password, callbackUrl: "/user" });
 
   };
+  
 
   return (
     <Flex
       minH={'94vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+      bg={'gray.50'}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
@@ -64,7 +65,7 @@ export default function LoginForm() {
         </Stack>
         <Box
           rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
+          bg={'white'}
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>

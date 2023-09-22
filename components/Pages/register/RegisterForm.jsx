@@ -32,13 +32,6 @@ export default function RegisterForm() {
   const [success, setSuccess] = useState("");
   console.log(params.get('error'));
 
-  // useEffect(() => {
-  //   setError(params.get("error"));
-  //   if(params.get('error') === "error is not defined"){
-  //     setError("Email has already been used.")
-  //   }
-  //   setSuccess(params.get("success"));
-  // }, [params]);
 
   if (session.status === "loading") {
     return <Loading/>;
@@ -81,7 +74,7 @@ export default function RegisterForm() {
       minH={'94vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+      bg={'gray.50'}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
@@ -93,7 +86,7 @@ export default function RegisterForm() {
         </Stack>
         <Box
           rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
+          bg={'white'}
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
