@@ -57,60 +57,62 @@ export default function Nav() {
 
   return (
     <>
-    <Box width={'full'} position={'fixed'} zIndex={'100'}>
-    <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box fontWeight={'600'} >
-            <Link href='/' >
-            <Text display={{ base: 'none', md: 'inline-flex' }}>ShortURL</Text>
-            </Link>
-          </Box>
+      <Box width={'full'} position={'fixed'} zIndex={'100'}>
+        <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+          <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+            <Box fontWeight={'600'} >
+              <Link href='/' >
+                <Text display={{ base: 'none', md: 'inline-flex' }}>ShortURL</Text>
+              </Link>
+            </Box>
 
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
-              {session.status === "authenticated" && (
-                <Menu>
-                  <MenuButton
-                    as={Button}
-                    rounded={'full'}
-                    variant={'link'}
-                    cursor={'pointer'}
-                    minW={0}>
-                    <Avatar
-                      size={'sm'}
-                      name={fullName}
-                    />
-                  </MenuButton>
-                  <MenuList>
+            <Flex alignItems={'center'}>
+              <Stack direction={'row'} spacing={7}>
 
-                    <MenuItem onClick={signOut}>ออกจากระบบ</MenuItem>
-                  </MenuList>
-                </Menu>
-              )}
-              {session.status === "unauthenticated" && (
-                <Stack
-                  flex={{ base: 1, md: 0 }}
-                  justify={'flex-end'}
-                  direction={'row'}
-                  spacing={6}>
+                <Button onClick={toggleColorMode}>
+                  {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                </Button>
+                {session.status === "unauthenticated" && (
+                  <Stack
+                    flex={{ base: 1, md: 0 }}
+                    justify={'flex-end'}
+                    direction={'row'}
+                    spacing={6}>
 
-                  <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'md'} fontWeight={400} href='login'>
-                    เข้าสู่ระบบ
-                  </Button>
+                    <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'md'} fontWeight={400} href='login'>
+                      เข้าสู่ระบบ
+                    </Button>
 
-                </Stack>
+                  </Stack>
 
-              )}
+                )}
+                {session.status === "authenticated" && (
+                  <Menu>
+                    <MenuButton
+                      as={Button}
+                      rounded={'full'}
+                      variant={'link'}
+                      cursor={'pointer'}
+                      minW={0}>
+                      <Avatar
+                        size={'sm'}
+                        name={fullName}
+                      />
+                    </MenuButton>
+                    <MenuList>
 
-            </Stack>
+                      <MenuItem onClick={signOut}>ออกจากระบบ</MenuItem>
+                    </MenuList>
+                  </Menu>
+                )}
+
+
+              </Stack>
+            </Flex>
           </Flex>
-        </Flex>
+        </Box>
       </Box>
-    </Box>
-      
+
     </>
   )
 }
