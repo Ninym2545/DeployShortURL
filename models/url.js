@@ -19,6 +19,7 @@ const UrlSchema = new Schema({
     },
     userid:{
         type: ObjectId,
+        ref: 'users'
     }
 },{timestamps: true}
 );
