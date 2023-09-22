@@ -60,11 +60,10 @@ export default function LinkResult({ inputValue }) {
     }
 
     useEffect(() => {
-      if (inputValue.length) {
-          fetchData();
-      }
-  }, [inputValue, fetchData]);
-  
+        if (inputValue.length) {
+            fetchData();
+        }
+    }, [inputValue]);
 
 
     if (loading) {
