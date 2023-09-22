@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic';
 
-const MyClientComponent = dynamic(() => import('../components/Pages/index/MyComponents'), {
+const MyClientComponent = dynamic(() => import('../components/Pages/index/myComponents'), {
   ssr: false, // Treat this component as a "Client Component"
 });
 const page = () => {

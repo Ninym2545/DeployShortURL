@@ -39,7 +39,7 @@ export default function LoginForm() {
     router?.push("/user");
   }
 
-  const bgColor = useColorModeValue('gray.50', 'gray.800');
+
   const handleCredentialsLogin = async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
@@ -54,7 +54,7 @@ export default function LoginForm() {
       minH={'94vh'}
       align={'center'}
       justify={'center'}
-      bg={bgColor}>
+      bg={useColorModeValue('gray.50', 'gray.800')}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
