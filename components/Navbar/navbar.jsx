@@ -73,17 +73,13 @@ export default function Nav() {
                   {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 </Button>
                 {session.status === "unauthenticated" && (
-                  <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
 
-                    <Button as={'a'} display={{ md: 'inline-flex' }} fontSize={'md'} fontWeight={400} href='login'>
-                      เข้าสู่ระบบ
-                    </Button>
 
-                  </Stack>
+                  <Button as={'a'} fontSize={'md'} fontWeight={400} href='login'>
+                    เข้าสู่ระบบ
+                  </Button>
+
+
 
                 )}
                 {session.status === "authenticated" && (
