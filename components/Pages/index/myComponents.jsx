@@ -1,9 +1,10 @@
+"use client"
 import React, { useState, useEffect } from 'react';
-import InputShortener from './InputShortener';
-import LinkResult from './LinkResult';
+import InputShortener from './InputShortener ';
+import LinkResult from './LinkResult ';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Loading from '@/app/loading';
+import Loading from '../../../app/loadding';
 
 const MyComponent = () => {
   const session = useSession();
