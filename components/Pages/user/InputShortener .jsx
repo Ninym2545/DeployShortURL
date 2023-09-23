@@ -185,7 +185,7 @@ export default function InputShortener() {
                           <Box width={{ base: "100px" , sm: "180px" , md: "200px" }} >
                             <QRCode
                               size={{ base: '200px' }}
-                              value={sg.fullurl}
+                              value={sg.shorturl}
                               viewBox={`0 0 256 256`}
                             />
                           </Box>

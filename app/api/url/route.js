@@ -19,8 +19,9 @@ export const GET = async (request) => {
 export const POST = async (require) => {
   try {
     const {url , user} = await require.json();
-    const uid = new ShortUniqueId({ length: 10 });
-    uid.rnd();
+    const res = await axios(`https://api.shrtco.de/v2/shorten?url=${url}`);
+    // const uid = new ShortUniqueId({ length: 10 });
+    // uid.rnd();
     const urls = await Url.findOne({
       fullurl: url
       ,userid : user
@@ -35,7 +36,7 @@ export const POST = async (require) => {
 
     const newUrl = new Url({
       fullurl: url,
-      shorturl:uid.rnd(),
+      shorturl:res.data.result.full_short_link,
       userid:user
     });
      await newUrl.save();
