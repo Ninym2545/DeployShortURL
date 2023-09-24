@@ -161,7 +161,7 @@ export default function InputShortener() {
                         </Heading>
                         <Text pt='2' fontSize='sm'>
                           <a href={`/${encodeURIComponent(sg.shorturl)}`} target="_blank">
-                            {sg.shorturl}
+                            {window.location.origin + "/" + sg.shorturl}
                           </a>
                         </Text>
                       </Box>
