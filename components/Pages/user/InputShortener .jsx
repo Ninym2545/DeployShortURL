@@ -160,7 +160,7 @@ export default function InputShortener() {
                           Short URL
                         </Heading>
                         <Text pt='2' fontSize='sm'>
-                          <a href={`/api/shorturl/${encodeURIComponent(sg.shorturl)}`} target="_blank">
+                          <a href={`/${encodeURIComponent(sg.shorturl)}`} target="_blank">
                             {sg.shorturl}
                           </a>
                         </Text>
